@@ -87,7 +87,7 @@ class QRTool: NSObject {
         return (resultStrings, resultImage)
     }
     
-    class func generatorQRCode(_ inputStr: String, centerImage: UIImage?,scaleXY: CGFloat = 10,drawSize:CGSize = CGSize(width: 80, height: 80)) -> UIImage {
+    class func generatorQRCode(_ inputStr: String, centerImage: UIImage?,scaleXY: CGFloat = 20,drawSize:CGSize = CGSize(width: 80, height: 80)) -> UIImage {
         let filter = CIFilter(name: "CIQRCodeGenerator")
         filter?.setDefaults()
         filter?.setValue(inputStr.data(using: String.Encoding.utf8), forKey: "inputMessage")
@@ -151,8 +151,11 @@ extension QRTool:  AVCaptureMetadataOutputObjectsDelegate {
             }
         }
         if scanResultBlock != nil {
-            removeFrameLayer()
-            scanResultBlock!(resultStrs)//代理转闭包
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
+                print("--now--")
+                self.removeFrameLayer()
+                self.scanResultBlock!(resultStrs)//代理转闭包
+            }
         }
     }
     

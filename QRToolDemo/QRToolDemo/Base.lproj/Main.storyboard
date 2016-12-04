@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZe-l2-qlp">
-                                <rect key="frame" x="16" y="20" width="343" height="20"/>
+                                <rect key="frame" x="16" y="64" width="343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="1ga-i5-qEq"/>
                                 </constraints>
@@ -34,20 +34,20 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://blog.csdn.net/callzjy" borderStyle="roundedRect" placeholder="http://blog.csdn.net/callzjy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KF4-Ba-rC3">
-                                <rect key="frame" x="16" y="75" width="343" height="30"/>
+                                <rect key="frame" x="16" y="119" width="343" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="相册或相机识别结果➴ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhu-n3-7pO">
-                                <rect key="frame" x="16" y="60" width="114" height="14"/>
+                                <rect key="frame" x="16" y="104" width="114" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kyx-pX-lHb">
-                                <rect key="frame" x="0.0" y="40" width="375" height="20"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="ls3-9j-zPM"/>
                                 </constraints>
@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jE0-N0-Xs0">
-                                <rect key="frame" x="16" y="106" width="343" height="20"/>
+                                <rect key="frame" x="16" y="150" width="343" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="EGa-io-zgK"/>
                                 </constraints>
@@ -69,13 +69,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="二维码图片生成结果➷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2U-jM-roa">
-                                <rect key="frame" x="16" y="328" width="111" height="14"/>
+                                <rect key="frame" x="16" y="372" width="111" height="14"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N07-L1-iEx">
-                                <rect key="frame" x="88" y="343" width="200" height="200"/>
+                                <rect key="frame" x="88" y="387" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="knx-tI-IUJ"/>
@@ -92,7 +92,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV7-Bx-xra">
-                                <rect key="frame" x="88" y="127" width="200" height="200"/>
+                                <rect key="frame" x="88" y="171" width="200" height="200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcode_border" translatesAutoresizingMaskIntoConstraints="NO" id="klo-c8-7td">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -143,6 +143,7 @@
                             <constraint firstItem="Kyx-pX-lHb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yOW-51-7zf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vmm-7O-Tdw"/>
                     <connections>
                         <outlet property="QRCodeResultStrings" destination="KF4-Ba-rC3" id="Oic-mr-CGc"/>
                         <outlet property="qrImg" destination="N07-L1-iEx" id="SBH-yD-Jtd"/>
@@ -153,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+            <point key="canvasLocation" x="972" y="38.23088455772114"/>
         </scene>
     </scenes>
     <resources>

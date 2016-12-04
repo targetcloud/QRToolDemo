@@ -16,12 +16,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var scanlineBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var qrImg: UIImageView!
     
+    deinit{
+        print("demo deinit");
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        QRCodeResultStrings.resignFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         scanBackView.backgroundColor = UIColor.clear
         scanBackView.clipsToBounds = true
+        
+        self.title="--QRTool Demo--";
+        let leftItem=UIBarButtonItem(barButtonSystemItem:.action,target:self,action:#selector(ViewController.ItemClick));
+        self.navigationItem.leftBarButtonItem=leftItem;
     }
 
+    func ItemClick(){
+        self.navigationController?.popViewController(animated: true);
+    }
+    
     //生成二维码图片
     @IBAction func generatorQRImage(_ sender: UIButton) {
         view.endEditing(true)
@@ -45,14 +61,14 @@ class ViewController: UIViewController {
     @IBAction func startScan(_ sender: UIButton) {
         startScanAnimation()
         QRTool.shareInstance.setRectInterest(scanBackView.frame)
-        QRTool.shareInstance.scanQRCode(view) { (resultStrs) in
+        QRTool.shareInstance.scanQRCode(view) { [weak self] (resultStrs) in
             guard let str = resultStrs.first else { return }
-            self.QRCodeResultStrings.text = str
+            self?.QRCodeResultStrings.text = str
             QRTool.shareInstance.session.stopRunning();
             QRTool.shareInstance.previewLayer.removeFromSuperlayer();
-            self.removeScanAnimation()
+            self?.removeScanAnimation()
             //前往扫描结果
-            self.go(str)
+//            self?.go(str)
         }
     }
     
@@ -71,9 +87,20 @@ class ViewController: UIViewController {
     }
     
     fileprivate func go(_ str : String){
-        let alertVC = UIAlertController(title: "结果", message: str.description, preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "前往", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
-            UIApplication.shared.open(URL(string: str)!, options: [:], completionHandler: nil)
+        var msg:String
+        var title:String
+        if str.characters.count==0 {
+            msg = "没有得到相关信息。。。"
+            title = "OK"
+        }else{
+            msg = str.description
+            title = "前往"
+        }
+        let alertVC = UIAlertController(title: "结果", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: title, style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+            if str.characters.count>0{
+                UIApplication.shared.open(URL(string: str)!, options: [:], completionHandler: nil)
+            }
         }
         alertVC.addAction(action)
         present(alertVC, animated: true, completion: nil)
