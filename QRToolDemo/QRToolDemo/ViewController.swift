@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     @IBAction func startScan(_ sender: UIButton) {
         startScanAnimation()
         QRTool.shareInstance.setRectInterest(scanBackView.frame)
-        QRTool.shareInstance.scanQRCode(view) { [weak self] (resultStrs) in
+        QRTool.shareInstance.scanQRCode(view) { [weak self] (resultStrs) in//需要加[weak self]
             guard let str = resultStrs.first else { return }
             self?.QRCodeResultStrings.text = str
             QRTool.shareInstance.session.stopRunning();
