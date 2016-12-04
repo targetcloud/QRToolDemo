@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             QRTool.shareInstance.previewLayer.removeFromSuperlayer();
             self?.removeScanAnimation()
             //前往扫描结果
-//            self?.go(str)
+            self?.go(str)
         }
     }
     
