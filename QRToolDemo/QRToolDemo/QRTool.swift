@@ -159,7 +159,7 @@ extension QRTool:  AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
-    func drawFrame(_ qrCodeObj: AVMetadataMachineReadableCodeObject) {
+    fileprivate func drawFrame(_ qrCodeObj: AVMetadataMachineReadableCodeObject) {
         guard let corners = qrCodeObj.corners else { return }
         let shapLayer = CAShapeLayer()
         shapLayer.fillColor = UIColor.clear.cgColor
@@ -182,7 +182,7 @@ extension QRTool:  AVCaptureMetadataOutputObjectsDelegate {
         previewLayer.addSublayer(shapLayer)
     }
     
-    func  removeFrameLayer() {
+    fileprivate func  removeFrameLayer() {
         guard let subLayers = previewLayer.sublayers else {return}
         for subLayer in subLayers {
             if subLayer.isKind(of: CAShapeLayer.self){
