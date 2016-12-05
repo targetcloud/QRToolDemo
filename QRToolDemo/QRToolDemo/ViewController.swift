@@ -16,10 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var scanlineBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var qrImg: UIImageView!
     
-    deinit{
-        print("demo deinit");
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         QRCodeResultStrings.resignFirstResponder()
     }
@@ -28,14 +24,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         scanBackView.backgroundColor = UIColor.clear
         scanBackView.clipsToBounds = true
-        
-        self.title="--QRTool Demo--";
-        let leftItem=UIBarButtonItem(barButtonSystemItem:.action,target:self,action:#selector(ViewController.ItemClick));
-        self.navigationItem.leftBarButtonItem=leftItem;
-    }
-
-    func ItemClick(){
-        self.navigationController?.popViewController(animated: true);
     }
     
     //生成二维码图片

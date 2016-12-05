@@ -152,7 +152,7 @@ extension QRTool:  AVCaptureMetadataOutputObjectsDelegate {
         }
         if scanResultBlock != nil {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
-                print("--now--")
+//                print("--now--")
                 self.removeFrameLayer()
                 self.scanResultBlock!(resultStrs)//代理转闭包
             }
